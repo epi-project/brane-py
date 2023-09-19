@@ -1,0 +1,25 @@
+[project]
+name = "brane"
+version = "0.1.0"
+authors = [
+    { name="Tim Müller", email="t.muller@uva.nl" },
+]
+description = "Brane SDK for use in Brane containers, simplifying (and standardising) interaction with the framework."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: POSIX :: Linux",
+]
+
+[project.urls]
+"Homepage" = "https://wiki.enablingpersonalizedinterventions.nl/"
+"Documentation" = "https://wiki.enablingpersonalizedinterventions.nl/"
+"Repository" = "https://github.com/epi-project/brane-py"
+
+
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
