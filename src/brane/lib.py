@@ -4,7 +4,7 @@
 # Created:
 #   19 Sep 2023, 14:10:07
 # Last edited:
-#   19 Sep 2023, 14:58:31
+#   28 Sep 2023, 12:05:09
 # Auto updated?
 #   Yes
 #
@@ -13,6 +13,7 @@
 #
 
 import functools
+import inspect
 import typing
 
 
@@ -37,6 +38,10 @@ def function(env_map: typing.Dict[str, str] = {}) -> typing.Callable[[typing.Cal
             The wrapped function but now really wrapped.
         """
 
+        # Find the function's argument names
+        args = inspect.signature(func)
+        print(args)
+
         # This is the function that transforms inputs first
         @functools.wraps(func)
         def brane_func(*args, **kwargs) -> typing.Callable:
@@ -44,15 +49,10 @@ def function(env_map: typing.Dict[str, str] = {}) -> typing.Callable[[typing.Cal
                 Does the heavy lifting.
             """
 
-            # Error on any arguments without name
-            args = list(args)
-            if len(args) > 0:
-                raise ValueError("All arguments must be named in Brane functions (i.e., use keyword arguments)")
+            return func
 
-            # Replace the keyword arguments
-            
 
-        return func
+        return brane_func
 
     # Return that
     return decorator
